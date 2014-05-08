@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,34 +11,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DesktopCall;
-using System.Windows.Interop;
-using System.Runtime.InteropServices;
 
-namespace DeskTile
+namespace DeskTileRender
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-
         public MainWindow()
         {
             InitializeComponent();
         }
-
-        private void RenderCanvas_Loaded(object sender, RoutedEventArgs e)
-        {
-
-            IntPtr windowHandle = new WindowInteropHelper(this).Handle;
-            DesktopCall.Dekstop.StickThisWindowToDesktop(windowHandle);
-            base.OnSourceInitialized(e);
-            HwndSource source = PresentationSource.FromVisual(this) as HwndSource;
-            source.AddHook(DesktopCall.Dekstop.WndProc);
-
-        }
-       
-
     }
 }
