@@ -4,6 +4,7 @@
         Title="MainWindow" Height="350" Width="525" Loaded="RenderCanvas_Loaded" Background="Transparent" ShowInTaskbar="False" WindowStyle="None" AllowsTransparency="True">
     <Grid>
         <Image Source="Capture.PNG" />
+        <Button Content="&#xD;&#xA;Button" HorizontalAlignment="Left" Margin="45,85,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
     </Grid>
     
 </Window>

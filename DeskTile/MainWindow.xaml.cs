@@ -37,6 +37,13 @@ namespace DeskTile
             source.AddHook(DesktopCall.Dekstop.WndProc);
 
         }
+        bool now = true;
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            now = !now;
+            DesktopCall.Dekstop.HideTaskbar(now);
+
+        }
        
 
     }
