@@ -13,6 +13,7 @@ using System.Windows.Shapes;
 using DesktopCall;
 using System.Windows.Interop;
 using System.Runtime.InteropServices;
+using DeskIcon;
 
 namespace DeskTile
 {
@@ -25,6 +26,10 @@ namespace DeskTile
         public MainWindow()
         {
             InitializeComponent();
+          
+
+            
+            
         }
 
         private void RenderCanvas_Loaded(object sender, RoutedEventArgs e)
@@ -32,17 +37,25 @@ namespace DeskTile
 
             IntPtr windowHandle = new WindowInteropHelper(this).Handle;
             DesktopCall.Dekstop.StickThisWindowToDesktop(windowHandle);
+
             base.OnSourceInitialized(e);
             HwndSource source = PresentationSource.FromVisual(this) as HwndSource;
             source.AddHook(DesktopCall.Dekstop.WndProc);
+       
 
+            
         }
         bool now = true;
+       
+
+        private void RenderCanvas_StateChanged(object sender, EventArgs e)
+        {
+          
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            now = !now;
-            DesktopCall.Dekstop.HideTaskbar(now);
-
+            
         }
        
 
