@@ -5,85 +5,40 @@
              xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:src="clr-namespace:DeskTileList"
-             mc:Ignorable="d" 
+             xmlns:selector="clr-namespace:MyTileHelper"
+             xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Classic"
+             xmlns:ap="clr-namespace:AutoArrangePanelSample" MouseRightButtonDown="UserControl_MouseRightButtonDown" PreviewMouseRightButtonDown="ListBoxItem_MouseRightButtonDown"
+                         
              >
     <UserControl.Resources>
-        <Style TargetType="Border">
-            <Setter Property="CornerRadius" Value="5"/>
-        </Style>
-        <Style TargetType="{x:Type ListBoxItem}">
-            <Setter Property="HorizontalContentAlignment"
-                  Value="Stretch" />
-            <Setter Property="Margin"
-                  Value="2,2,2,2" />
-            
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver"
-                     Value="True">
-                    <Setter Property="Control.Background"
-                      Value="Orange" />
-                    <Setter Property="Control.BorderBrush"
-                      Value="SteelBlue" />
-                    <Setter Property="Control.BorderThickness"
-                      Value="0" />
-                    
-                    <Trigger.EnterActions>
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <ColorAnimation Duration="0:0:0.2" 
-                Storyboard.TargetProperty="Background.(SolidColorBrush.Color)" To="#11000000"
-                From="Transparent" />
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </Trigger.EnterActions>
-                    <Trigger.ExitActions>
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <ColorAnimation Duration="0:0:0.1" 
-                Storyboard.TargetProperty="Background.(SolidColorBrush.Color)" 
-                From="#11000000" To="Transparent" />
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </Trigger.ExitActions>
-                </Trigger>
-            </Style.Triggers>
-            
-        </Style>
+        <ResourceDictionary Source="Windows7ThemeDictionary.xaml"/>
     </UserControl.Resources>
-    <Canvas Margin="0,0,-198,-202.5">
- 
-        <theme:SystemDropShadowChrome Name="Shadow" Margin="0,0,0,0" Opacity="1">
-            <Rectangle Width="500" Height="500" Fill="transparent"/>
-            <theme:SystemDropShadowChrome.Clip>
-                <CombinedGeometry GeometryCombineMode="Exclude">
-                    <CombinedGeometry.Geometry1>
-                        <RectangleGeometry Rect="0,0,505,505"/>
-                    </CombinedGeometry.Geometry1>
-                    <CombinedGeometry.Geometry2>
-                        <RectangleGeometry Rect="0,0,500,500"/>
-                    </CombinedGeometry.Geometry2>
-                </CombinedGeometry>
-            </theme:SystemDropShadowChrome.Clip>
-        </theme:SystemDropShadowChrome>
 
-        <DockPanel Margin="0,5,0,0" SnapsToDevicePixels="True" Canvas.Top="0" Canvas.Left="0" Background="#FFededed" Name="MainPanal" LastChildFill="True" HorizontalAlignment="Stretch" Height="500" Width="500" >
-            <TextBlock DockPanel.Dock="Bottom" Padding="0,5,0,0" Cursor="Arrow" Name="Title" Background="BlueViolet" VerticalAlignment="Bottom" Height="30" HorizontalAlignment="Stretch" TextAlignment="Center" FontFamily="Segoe UI" FontWeight="Medium" Foreground="White" FontSize="14" >Demooo Text</TextBlock>
-            <ListBox Padding="5,5,5,5" src:DragAndDrop.DropEnabled="true" Background="Transparent" src:DragAndDrop.DragEnabled="true" AllowDrop="True"  MouseMove="Movers_MouseMove" MouseUp="Movers_MouseUp" Drop="MovingCanvas_Drop" Height="Auto" Width="Auto"   DockPanel.Dock="Top" Name="Lister"  VerticalAlignment="Stretch"  BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" MouseLeave="Lister_MouseLeave" HorizontalContentAlignment="Stretch">
-                <ListBox.ItemsPanel>
-                    <ItemsPanelTemplate >
-                        <WrapPanel Orientation="Horizontal"  >
+    <Border BorderBrush="#44000000" BorderThickness="1" CornerRadius="1" MouseRightButtonUp="UserControl_MouseRightButtonDown">
 
-                        </WrapPanel>
-                    </ItemsPanelTemplate> 
-                </ListBox.ItemsPanel>
-                
-            </ListBox>
+        <DockPanel Height="304" Opacity="1" Width="250"  SnapsToDevicePixels="True" Canvas.Top="5" Canvas.Left="0" Background="#8800" Name="MainPanal" LastChildFill="True"  >
+       
+        <TextBlock SnapsToDevicePixels="False" DockPanel.Dock="Bottom" Padding="0,2,0,0" Cursor="Arrow" Name="Title" VerticalAlignment="Center"  Height="30" HorizontalAlignment="Stretch" TextAlignment="Center" FontFamily="Segoe UI Semilight" Background="#22000000" FontWeight="Medium" Foreground="White" FontSize="18" >
+            Demo Text</TextBlock>
+            <ListBox MouseDoubleClick="UserControl_MouseDoubleClick" MouseRightButtonDown="ListBoxItem_MouseRightButtonDown"   KeyDown="Lister_KeyDown"    SelectionMode="Extended"  src:DragAndDrop.DropEnabled="true" Background="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled" src:DragAndDrop.DragEnabled="true" AllowDrop="True"  Height="Auto" Width="Auto"   DockPanel.Dock="Top" Name="Lister"  BorderThickness="0"  HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center"  SelectionChanged="Lister_SelectionChanged" >
 
-            
-            
+       
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate >
+                        <ap:ArrangePanel MouseRightButtonDown="ListBoxItem_MouseRightButtonDown" SnapsToDevicePixels="True" ItemSize="100" ItemMargin="-13" Margin="10,10,0,0">
+                        </ap:ArrangePanel>
+                    </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+          
            
-        </DockPanel>
-      
-    </Canvas>
 
+        </ListBox>
+
+ 
+
+
+
+
+    </DockPanel>
+    </Border>
 </UserControl>

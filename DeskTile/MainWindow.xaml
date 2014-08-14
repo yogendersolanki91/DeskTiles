@@ -1,16 +1,19 @@
-﻿<Window x:Name="RenderCanvas" x:Class="DeskTile.MainWindow"
+﻿<Window x:Name="RenderCanvas" 
+        x:Class="DeskTile.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:l="clr-namespace:DeskTileWithSize;assembly=DeksTileWithSize"
-        
-        
-        Title="MainWindow" WindowState="Maximized" Height="350" Width="525" Loaded="RenderCanvas_Loaded" Background="Transparent" ShowInTaskbar="False" WindowStyle="None" AllowsTransparency="True" StateChanged="RenderCanvas_StateChanged">
+        xmlns:panals="clr-namespace:DeskTileList;assembly=DeskTileList"
+        xmlns:new="http://kent.boogaart/controls"
+       
+        Title="MainWindow"   VerticalContentAlignment="Top" AllowsTransparency="True" HorizontalAlignment="Left"  WindowState="Maximized" SnapsToDevicePixels="True" Loaded="RenderCanvas_Loaded" Background="Transparent" ShowInTaskbar="False" WindowStyle="None" Deactivated="RenderCanvas_Deactivated">
 
-    <Grid Name="sample">
+    <Grid Name="TopContainer">
+        <Button Content="Button" HorizontalAlignment="Left" Margin="267,505,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
 
-        <l:TileWithSize></l:TileWithSize>
-     
+
+
+
+
 
     </Grid>
-
 </Window>

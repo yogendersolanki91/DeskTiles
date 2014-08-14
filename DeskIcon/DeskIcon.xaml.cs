@@ -19,10 +19,10 @@ namespace DeskIcon
     /// <summary>
     /// Interaction logic for UserControl1.xaml
     /// </summary>
-    public partial class DeskIcon : UserControl
+    public partial class DeskIconClass : UserControl
     {
         public string completePath;
-        public DeskIcon(string pathToShortcut)
+        public DeskIconClass(string pathToShortcut)
         {
             InitializeComponent();
             this.IconShow.Source = GetThumbnail(pathToShortcut.ToString());
@@ -59,7 +59,7 @@ namespace DeskIcon
             {*/
 
                 ShellObject shellFile = ShellFolder.FromParsingName(filePath);
-                BitmapSource shellThumb = shellFile.Thumbnail.LargeBitmapSource;
+                BitmapSource shellThumb = shellFile.Thumbnail.ExtraLargeBitmapSource;
                 BitmapImage bImg = new BitmapImage();
                 PngBitmapEncoder encoder = new PngBitmapEncoder();
                 var memoryStream = new MemoryStream();

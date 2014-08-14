@@ -82,12 +82,6 @@
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DeskTileList\DeskTileList.csproj">
-      <Project>{c8e472e2-5568-4d60-98e8-c331ec7ca1a0}</Project>
-      <Name>DeskTileList</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

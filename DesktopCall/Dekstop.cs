@@ -26,6 +26,7 @@ namespace DesktopCall
         const UInt32 SWP_NOMOVE = 0x0002;
         private const int GWL_EXSTYLE = -20;
         private const int WS_EX_TOOLWINDOW = 0x00000080;
+         
         static readonly IntPtr HWND_BOTTOM = new IntPtr(1);
         [StructLayout(LayoutKind.Sequential)]
         public struct WINDOWPOS
@@ -43,7 +44,9 @@ namespace DesktopCall
         public static IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
         {
             const int WM_WINDOWPOSCHANGING = 0x46;
+            const int WM_SIZE = 5;
             const uint SWP_NOZORDER = 0x4;
+           
 
             if (msg == WM_WINDOWPOSCHANGING)
             {
@@ -70,8 +73,8 @@ namespace DesktopCall
         
         public static void StickThisWindowToDesktop(IntPtr windowHandle)
         {
-          //  IntPtr hWndProgMan = FindWindow("Progman", "Program Manager");
-           // SetParent(windowHandle, hWndProgMan);
+          //IntPtr hWndProgMan = FindWindow("Progman", "Program Manager");
+           //SetParent(windowHandle, hWndProgMan);
             HideFromAltTab(windowHandle);
 
             SetWindowPos(windowHandle, HWND_BOTTOM, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE);
@@ -118,5 +121,7 @@ namespace DesktopCall
         }
 
 
+
+       
     }
 }

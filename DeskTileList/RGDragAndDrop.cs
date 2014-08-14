@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
+using Microsoft.WindowsAPICodePack.Shell;
 
 namespace DeskTileList
 {
@@ -51,7 +52,7 @@ namespace DeskTileList
             return null;
         }
         #endregion
-
+    
         #region DragEnabled
         public static readonly DependencyProperty DragEnabledProperty =
             DependencyProperty.RegisterAttached("DragEnabled",
@@ -76,7 +77,7 @@ namespace DeskTileList
                 ListBox listbox = (ListBox)obj;
                 listbox.PreviewMouseLeftButtonDown += new MouseButtonEventHandler(listbox_PreviewMouseLeftButtonDown);
                 listbox.MouseMove += listbox_MouseMove;
-                listbox.PreviewMouseLeftButtonUp += listbox_PreviewMouseLeftButtonUp;
+               // listbox.PreviewMouseLeftButtonUp += listbox_PreviewMouseLeftButtonUp;
             }
         }
 
@@ -112,26 +113,46 @@ namespace DeskTileList
             }
         }
         #endregion
-
+        
         static void listbox_Drop(object sender, DragEventArgs e)
         {
             if (DragType != null && isDragging)
             {
                 object data = e.Data.GetData(DragType);
                 //Change: Check if type is visible, remove only visible items from DragSource...
-               
+                if (!DragSource.Equals((ListBox)sender))
+                {
                     DragSource.Items.Remove(data);
                     ((ListBox)sender).Items.Add(data);
-                    
+                }
                 
             }
-            string[] droppedFilePaths = e.Data.GetData(DataFormats.FileDrop, true) as string[];
+           // MessageBox.Show(e.Data.GetFormats()[0].ToString());
+
+
+           /* string[] droppedFilePaths = e.Data.GetData(DataFormats.FileDrop, true) as string[];
             if (droppedFilePaths != null)
             {
                 foreach (var path in droppedFilePaths)
                 {
-                    DeskIcon.DeskIcon icon = new DeskIcon.DeskIcon(path);
+                    DeskIcon.DeskIconClass icon= new DeskIcon.DeskIconClass(path);
                     ((ListBox)sender).Items.Add(icon);
+                    MessageBox.Show("NOmralaad");
+                }
+            }*/
+            string[] formats = e.Data.GetFormats();
+            foreach (string format in formats)
+            {
+                // Shell items are passed using the "Shell IDList Array" format. 
+                if (format == "Shell IDList Array")
+                {
+                    // Retrieve the ShellObjects from the data object
+                  //  MessageBox.Show(ShellObjectCollection.FromDataObject((System.Runtime.InteropServices.ComTypes.IDataObject)e.Data)[0].ParsingName);
+                    foreach(ShellObject s in (ShellObjectCollection.FromDataObject((System.Runtime.InteropServices.ComTypes.IDataObject)e.Data)))
+                    ((ListBox)sender).Items.Add( new DeskIcon.DeskIconClass(s.ParsingName));
+                    e.Handled = true;
+
+                  //  MessageBox.Show("SSSS");
                 }
             }
            
@@ -157,7 +178,7 @@ namespace DeskTileList
             {
                 isDragging = true;
             }
-            if (e.LeftButton==MouseButtonState.Released)
+            if (isDragging && e.LeftButton == MouseButtonState.Released)
             {
                 isDragging = false;
             }
@@ -173,11 +194,8 @@ namespace DeskTileList
                 
             }
             
+            
         }
-        static void listbox_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            isDragging = false;
-
-        }
+       
     }
 }

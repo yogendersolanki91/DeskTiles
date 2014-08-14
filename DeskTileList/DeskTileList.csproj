@@ -13,6 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,9 +33,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell">
+      <HintPath>F:\.NET Goodies\My Style\Tab_Slider\Tab_Slider\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="ShellContexMenu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\DeskTiles\DeskTile\bin\Debug\ShellContexMenu.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,15 +54,45 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArrangePanel.cs" />
+    <Compile Include="DeskToDo.xaml.cs">
+      <DependentUpon>DeskToDo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DragHelper.cs" />
+    <Compile Include="IconTile.xaml.cs">
+      <DependentUpon>IconTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SHellnative.cs" />
+    <Compile Include="ShellShortcut.cs" />
+    <Compile Include="TilesWithGrip.xaml.cs">
+      <DependentUpon>TilesWithGrip.xaml</DependentUpon>
+    </Compile>
+    <Page Include="DeskToDo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="IconTile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="TileList.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="ListBoxSelector.cs" />
     <Compile Include="RGDragAndDrop.cs" />
     <Compile Include="TileList.xaml.cs">
       <DependentUpon>TileList.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="TilesWithGrip.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows7ThemeDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -79,22 +119,28 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="composite_copy_opacity_png8.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="HJFRR.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="FullTrans.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="2per.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\DeskIcon\DeskIcon.csproj">
       <Project>{195c79a7-92b8-4377-b2ad-82dec7dd042b}</Project>
       <Name>DeskIcon</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DesktopCall\DesktopCall.csproj">
+      <Project>{72fa9adf-18a2-49af-992d-d442542ad70b}</Project>
+      <Name>DesktopCall</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="IWshRuntimeLibrary">
+      <Guid>{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

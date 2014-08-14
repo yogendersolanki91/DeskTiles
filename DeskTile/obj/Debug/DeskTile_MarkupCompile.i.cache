@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-c:\users\blackj\documents\visual studio 2013\Projects\DeskTile\DeskTile\obj\Debug\
+C:\Users\blackJ\Documents\Visual Studio 2013\Projects\DeskTiles\DeskTile\obj\Debug\
 DeskTile
 none
 false
 DEBUG;TRACE
-c:\users\blackj\documents\visual studio 2013\Projects\DeskTile\DeskTile\App.xaml
-11151548125
+C:\Users\blackJ\Documents\Visual Studio 2013\Projects\DeskTiles\DeskTile\App.xaml
+5-1390922979
 
-82125903116
-71528592142
-MainWindow.xaml;
+1113773364
+211949111120
+NewTile.xaml;Selector.xaml;MetroCombo.xaml;MainWindow.xaml;Setting.xaml;
 
 False
 

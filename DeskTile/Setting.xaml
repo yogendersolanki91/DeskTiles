@@ -1,0 +1,68 @@
+﻿<Window x:Class="DeskTile.Setting"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="498.667" Width="481.667" Loaded="Window_Loaded" MaxHeight="498.667" MaxWidth="481.667" Closing="Window_Closing" WindowStyle="SingleBorderWindow"
+       
+      >
+    <TabControl Margin="15,10,15,15" Name="tabCT" BorderBrush="Black" BorderThickness="1">
+        <TabItem Header="Per Tile Setting" SnapsToDevicePixels="True">
+
+
+            <Canvas>
+                <GroupBox Header="Tile Settings" Height="147.167" Width="418.998" Canvas.Left="4.669" Canvas.Top="30" >
+                    <Canvas>
+                        <Label Content="Tile" Canvas.Left="10" Canvas.Top="13.329"/>
+                        <StackPanel Name="controlBox" Canvas.Top="-36" >
+                            <ComboBox Name="ListAll" Width="232" HorizontalAlignment="Left" Margin="100,50,0,0" VerticalAlignment="Top"  FontFamily="Segoe UI Semilight"  SelectionChanged="ListAll_SelectionChanged" Height="22"/>
+
+                            <TextBox MaxLines="2" Name="TileFooter" Width="231.333" HorizontalAlignment="Left" Margin="100,10,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" TextChanged="TileFooter_TextChanged" VerticalContentAlignment="Center"  FontFamily="Segoe UI Semilight" VerticalAlignment="Top"  />
+
+                        </StackPanel>
+                        <Button Canvas.Left="376" Name="DeleteTile" Canvas.Top="14.333" ToolTip="Add Tile Just By Clicking" Click="DeleteTile_Click"  Width="28.243">✖</Button>
+                        <Button Canvas.Left="339.709" x:Name="AddTile" Canvas.Top="14" ToolTip="Add Tile Just By Clicking" Click="AddTile_Click" Content="✚" Width="27.582"/>
+                        <Label Content="Footer" Canvas.Left="10" Canvas.Top="44.289"/>
+                        <Label Content="Tile Color" Canvas.Left="10" Canvas.Top="72.96"/>
+                    </Canvas>
+                </GroupBox>
+                <GroupBox Header="Desktop Tweaks" Canvas.Top="193.162" Height="125.627" Width="414.996" Canvas.Left="8.671">
+
+                    <StackPanel>
+                        <CheckBox Margin="5">Hide Desktop Completely</CheckBox>
+                        <CheckBox Margin="5">Automatically load on startup</CheckBox>
+                        <CheckBox Margin="5" IsEnabled="False">Use Zip Function (to be addded)</CheckBox>
+                        <CheckBox Margin="5" IsEnabled="False">Use Win+Alt+Space to show all tile over the screen (to be addded)</CheckBox>
+                    </StackPanel>
+                </GroupBox>
+                <StackPanel Orientation="Horizontal"  x:Name="MainGrid"  VerticalAlignment="Top" Canvas.Left="253.667" Canvas.Top="348.833">
+
+                    <Button  Width="65" Height="22" Click="Button_Click"  Margin="10" Content="Save" />
+
+                    <Button  Width="65" Height="22" Margin="10" Content="Cancel"  Canvas.Left="510.5" Canvas.Top="265.5"  />
+
+
+
+                </StackPanel>
+            </Canvas>
+
+
+        </TabItem>
+
+        <TabItem SnapsToDevicePixels="True" Header="About">
+            <StackPanel Margin="0,0,0,0">
+                <Image Height="100" Source="intiLogo.png"/>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="This Product is going in the tasting phase!!!" TextAlignment="Center"/>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Developed by CreativeX2" TextAlignment="Center"/>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="By Yogender Solanki" TextAlignment="Center"/>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,20,0,0" Text="Feature to be added" TextAlignment="Center"/>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Text="Tile Zipping" TextAlignment="Center"/>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Text="New Tile Task" TextAlignment="Center"/>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Text="Better Tile Interacation" TextAlignment="Center"/>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Text="Rendering Issue" TextAlignment="Center"/>
+            
+
+
+            </StackPanel>
+        </TabItem>
+
+    </TabControl>
+</Window>

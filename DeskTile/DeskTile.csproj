@@ -53,19 +53,64 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Kent.Boogaart.Windows.Controls, Version=1.0.5264.24281, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\DeskTiles\DeskTile\bin\Debug\Kent.Boogaart.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell">
+      <HintPath>F:\.NET Goodies\My Style\Tab_Slider\Tab_Slider\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="ShellContexMenu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\DeskTiles\DeskTile\bin\Debug\ShellContexMenu.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Windows.Controls.Input.Toolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WPFToolkit.3.5.50211.1\lib\System.Windows.Controls.Input.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Layout.Toolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WPFToolkit.3.5.50211.1\lib\System.Windows.Controls.Layout.Toolkit.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.Toolkit">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.1.0\lib\net35\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ArrangePanel.cs" />
+    <Compile Include="NewTile.xaml.cs">
+      <DependentUpon>NewTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SerializerTile.cs" />
+    <Compile Include="Setting.xaml.cs" />
+    <Compile Include="singleApp.cs" />
+    <Compile Include="singleme.cs" />
+    <Compile Include="TileManager.cs" />
+    <Page Include="NewTile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Selector.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MetroCombo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -78,6 +123,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Setting.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -98,6 +147,8 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -105,17 +156,13 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\ShellContexMenu\ShellContexMenu\ShellContexMenu.csproj">
-      <Project>{29d26741-3acd-4982-8ef5-b0154a38fa95}</Project>
-      <Name>ShellContexMenu</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DeksTileWithSize\DeskTileWithSize.csproj">
-      <Project>{116f54ce-0a0c-465e-855b-2a06e2fce6a2}</Project>
-      <Name>DeskTileWithSize</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DeskIcon\DeskIcon.csproj">
       <Project>{195c79a7-92b8-4377-b2ad-82dec7dd042b}</Project>
       <Name>DeskIcon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DeskTileList\DeskTileList.csproj">
+      <Project>{c8e472e2-5568-4d60-98e8-c331ec7ca1a0}</Project>
+      <Name>DeskTileList</Name>
     </ProjectReference>
     <ProjectReference Include="..\DesktopCall\DesktopCall.csproj">
       <Project>{72fa9adf-18a2-49af-992d-d442542ad70b}</Project>
@@ -124,6 +171,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Capture.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="transparent_graphic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="intiLogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

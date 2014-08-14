@@ -1,19 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeskTile", "DeskTile\DeskTile.csproj", "{2AE4C6A2-141C-413D-A6FA-A00933BFA3AA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShellContexMenu", "..\ShellContexMenu\ShellContexMenu\ShellContexMenu.csproj", "{29D26741-3ACD-4982-8EF5-B0154A38FA95}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C8E472E2-5568-4D60-98E8-C331EC7CA1A0} = {C8E472E2-5568-4D60-98E8-C331EC7CA1A0}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopCall", "DesktopCall\DesktopCall.csproj", "{72FA9ADF-18A2-49AF-992D-D442542AD70B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeskIcon", "DeskIcon\DeskIcon.csproj", "{195C79A7-92B8-4377-B2AD-82DEC7DD042B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeskTileList", "DeskTileList\DeskTileList.csproj", "{C8E472E2-5568-4D60-98E8-C331EC7CA1A0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{195C79A7-92B8-4377-B2AD-82DEC7DD042B} = {195C79A7-92B8-4377-B2AD-82DEC7DD042B}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeskTileWithSize", "DeksTileWithSize\DeskTileWithSize.csproj", "{116F54CE-0A0C-465E-855B-2A06E2FCE6A2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShellExtensionExplorer", "ShellExtensionExplorer\ShellExtensionExplorer.csproj", "{12F9A046-74BA-4D89-9455-E276B27C13FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,14 +35,6 @@ Global
 		{2AE4C6A2-141C-413D-A6FA-A00933BFA3AA}.Release|Any CPU.Build.0 = Release|x86
 		{2AE4C6A2-141C-413D-A6FA-A00933BFA3AA}.Release|x86.ActiveCfg = Release|x86
 		{2AE4C6A2-141C-413D-A6FA-A00933BFA3AA}.Release|x86.Build.0 = Release|x86
-		{29D26741-3ACD-4982-8EF5-B0154A38FA95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{29D26741-3ACD-4982-8EF5-B0154A38FA95}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{29D26741-3ACD-4982-8EF5-B0154A38FA95}.Debug|x86.ActiveCfg = Debug|x86
-		{29D26741-3ACD-4982-8EF5-B0154A38FA95}.Debug|x86.Build.0 = Debug|x86
-		{29D26741-3ACD-4982-8EF5-B0154A38FA95}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{29D26741-3ACD-4982-8EF5-B0154A38FA95}.Release|Any CPU.Build.0 = Release|Any CPU
-		{29D26741-3ACD-4982-8EF5-B0154A38FA95}.Release|x86.ActiveCfg = Release|x86
-		{29D26741-3ACD-4982-8EF5-B0154A38FA95}.Release|x86.Build.0 = Release|x86
 		{72FA9ADF-18A2-49AF-992D-D442542AD70B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{72FA9ADF-18A2-49AF-992D-D442542AD70B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72FA9ADF-18A2-49AF-992D-D442542AD70B}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -57,12 +53,12 @@ Global
 		{C8E472E2-5568-4D60-98E8-C331EC7CA1A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8E472E2-5568-4D60-98E8-C331EC7CA1A0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C8E472E2-5568-4D60-98E8-C331EC7CA1A0}.Release|x86.ActiveCfg = Release|Any CPU
-		{116F54CE-0A0C-465E-855B-2A06E2FCE6A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{116F54CE-0A0C-465E-855B-2A06E2FCE6A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{116F54CE-0A0C-465E-855B-2A06E2FCE6A2}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{116F54CE-0A0C-465E-855B-2A06E2FCE6A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{116F54CE-0A0C-465E-855B-2A06E2FCE6A2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{116F54CE-0A0C-465E-855B-2A06E2FCE6A2}.Release|x86.ActiveCfg = Release|Any CPU
+		{12F9A046-74BA-4D89-9455-E276B27C13FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12F9A046-74BA-4D89-9455-E276B27C13FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12F9A046-74BA-4D89-9455-E276B27C13FF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{12F9A046-74BA-4D89-9455-E276B27C13FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12F9A046-74BA-4D89-9455-E276B27C13FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12F9A046-74BA-4D89-9455-E276B27C13FF}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
