@@ -141,7 +141,7 @@ namespace DeskTile
         Setting setup;
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //(new Setting(ref tileSet,1)).Show();
+            (new Setting(ref tileSet,1)).Show();
         }
     }
 
